@@ -33,7 +33,6 @@ htmlcov/
 
 # Directories not yet ready
 docs/
-tests/
 examples/
 
 # Output data
