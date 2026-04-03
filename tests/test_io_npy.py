@@ -3,11 +3,11 @@
 import numpy as np
 import pytest
 
-from skeletrack.data.bbox import BBox
-from skeletrack.data.collection import TrackCollection
-from skeletrack.data.skeleton import Skeleton
-from skeletrack.data.track import Track
-from skeletrack.io.npy import load_npy, save_npy
+from vtraxkit.data.bbox import BBox
+from vtraxkit.data.collection import TrackCollection
+from vtraxkit.data.skeleton import Skeleton
+from vtraxkit.data.track import Track
+from vtraxkit.io.npy import load_npy, save_npy
 
 
 def _make_collection() -> TrackCollection:

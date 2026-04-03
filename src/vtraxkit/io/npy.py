@@ -1,6 +1,6 @@
 """NumPy .npy serialization for tracks.
 
-Supports both the new skeletrack format and the legacy VideoScreener format.
+Supports both the new vtraxkit format and the legacy VideoScreener format.
 """
 
 from __future__ import annotations
@@ -44,7 +44,7 @@ def save_npy(collection: TrackCollection, path: str | Path) -> None:
         })
 
     data = {
-        "version": "skeletrack-v1",
+        "version": "vtraxkit-v1",
         "video_metadata": collection.video_metadata,
         "tracks": tracks_data,
     }
@@ -54,7 +54,7 @@ def save_npy(collection: TrackCollection, path: str | Path) -> None:
 def load_npy(path: str | Path) -> TrackCollection:
     """Load a TrackCollection from a .npy file.
 
-    Supports both skeletrack-v1 format and legacy VideoScreener format.
+    Supports both vtraxkit-v1 format and legacy VideoScreener format.
     """
     path = Path(path)
     raw = np.load(str(path), allow_pickle=True)
@@ -63,7 +63,7 @@ def load_npy(path: str | Path) -> TrackCollection:
     if raw.ndim == 0:
         raw = raw.item()
 
-    if isinstance(raw, dict) and raw.get("version") == "skeletrack-v1":
+    if isinstance(raw, dict) and raw.get("version") == "vtraxkit-v1":
         return _load_v1(raw)
 
     # Legacy format: list of frame dicts

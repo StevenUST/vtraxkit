@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from skeletrack.data.skeleton import Skeleton
+from vtraxkit.data.skeleton import Skeleton
 
 
 class TestSkeleton:

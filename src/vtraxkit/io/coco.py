@@ -50,7 +50,7 @@ def save_coco(collection: TrackCollection, path: str | Path) -> None:
             ann_id += 1
 
     output = {
-        "info": {"description": "Exported by skeletrack"},
+        "info": {"description": "Exported by vtraxkit"},
         "categories": [{
             "id": 1,
             "name": "person",

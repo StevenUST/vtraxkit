@@ -32,7 +32,7 @@ class MediaPipePose(PoseBackend):
     """Pose estimation using MediaPipe Holistic.
 
     Extracts pose (33 kpts), left_hand (21), right_hand (21), face (468).
-    Requires ``pip install skeletrack[mediapipe]``.
+    Requires ``pip install vtraxkit[mediapipe]``.
     """
 
     def __init__(
@@ -45,7 +45,7 @@ class MediaPipePose(PoseBackend):
         except ImportError:
             raise ImportError(
                 "mediapipe is required for this backend. "
-                "Install it with: pip install skeletrack[mediapipe]"
+                "Install it with: pip install vtraxkit[mediapipe]"
             )
 
         self._holistic = mp.solutions.holistic.Holistic(

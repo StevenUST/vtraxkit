@@ -13,7 +13,7 @@ class TrackCollection:
 
     Supports iteration, indexing, filtering, and export::
 
-        tracks = skeletrack.extract("video.mp4")
+        tracks = vtraxkit.extract("video.mp4")
         children = tracks.filter(min_duration=2.0)
         children.save("output.npy")
     """
@@ -118,7 +118,7 @@ class TrackCollection:
             raise ValueError(f"Unknown format: {format!r}")
 
     def to_dataframe(self):
-        """Convert to pandas DataFrame. Requires ``pip install skeletrack[pandas]``."""
+        """Convert to pandas DataFrame. Requires ``pip install vtraxkit[pandas]``."""
         from ..io.dataframe import to_dataframe
         return to_dataframe(self)
 

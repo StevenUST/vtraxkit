@@ -2,10 +2,10 @@
 
 import pytest
 
-from skeletrack.detection.base import DetectorBackend
-from skeletrack.detection.registry import _DETECTORS, register_detector
-from skeletrack.pose.base import PoseBackend
-from skeletrack.pose.registry import _POSE_BACKENDS, register_pose
+from vtraxkit.detection.base import DetectorBackend
+from vtraxkit.detection.registry import _DETECTORS, register_detector
+from vtraxkit.pose.base import PoseBackend
+from vtraxkit.pose.registry import _POSE_BACKENDS, register_pose
 
 
 class TestDetectorRegistry:
@@ -22,12 +22,12 @@ class TestDetectorRegistry:
         del _DETECTORS["_test_det"]
 
     def test_unknown_detector_raises(self):
-        from skeletrack.detection.registry import get_detector
+        from vtraxkit.detection.registry import get_detector
         with pytest.raises(ValueError, match="Unknown detector"):
             get_detector("nonexistent_backend_xyz")
 
     def test_passthrough_instance(self):
-        from skeletrack.detection.registry import get_detector
+        from vtraxkit.detection.registry import get_detector
 
         class _DummyDetector(DetectorBackend):
             def detect(self, frame, frame_idx):
@@ -55,12 +55,12 @@ class TestPoseRegistry:
         del _POSE_BACKENDS["_test_pose"]
 
     def test_unknown_pose_raises(self):
-        from skeletrack.pose.registry import get_pose_backend
+        from vtraxkit.pose.registry import get_pose_backend
         with pytest.raises(ValueError, match="Unknown pose backend"):
             get_pose_backend("nonexistent_backend_xyz")
 
     def test_passthrough_instance(self):
-        from skeletrack.pose.registry import get_pose_backend
+        from vtraxkit.pose.registry import get_pose_backend
 
         class _DummyPose(PoseBackend):
             def estimate(self, frame, bbox=None):

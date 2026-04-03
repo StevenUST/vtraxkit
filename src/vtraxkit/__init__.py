@@ -1,20 +1,20 @@
-"""Skeletrack: Extract multi-person skeleton trajectories from videos.
+"""Vtraxkit: Extract multi-person skeleton trajectories from videos.
 
 Usage::
 
-    import skeletrack
+    import vtraxkit
 
     # One-liner
-    tracks = skeletrack.extract("video.mp4")
+    tracks = vtraxkit.extract("video.mp4")
 
     # With options
-    tracks = skeletrack.extract("video.mp4", device="cuda", detector="yolo:yolov8s.pt")
+    tracks = vtraxkit.extract("video.mp4", device="cuda", detector="yolo:yolov8s.pt")
 
     # Filter + save
     tracks.filter(min_duration=2.0).save("output.npy")
 
     # Load previously saved tracks
-    tracks = skeletrack.load("output.npy")
+    tracks = vtraxkit.load("output.npy")
 """
 
 from ._version import __version__
@@ -82,6 +82,6 @@ def extract(
 def load(path: str) -> TrackCollection:
     """Load previously saved tracks from file.
 
-    Supports .npy files (both skeletrack and legacy VideoScreener format).
+    Supports .npy files (both vtraxkit and legacy VideoScreener format).
     """
     return TrackCollection.load(path)

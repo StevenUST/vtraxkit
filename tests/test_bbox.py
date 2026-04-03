@@ -2,7 +2,7 @@
 
 import pytest
 
-from skeletrack.data.bbox import BBox, iou
+from vtraxkit.data.bbox import BBox, iou
 
 
 class TestBBox:

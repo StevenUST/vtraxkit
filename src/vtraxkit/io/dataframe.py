@@ -11,14 +11,14 @@ def to_dataframe(collection: TrackCollection):
     Columns: track_id, frame_idx, timestamp, bbox_x, bbox_y, bbox_w, bbox_h,
              and one column per keypoint coordinate (e.g. pose_0_x, pose_0_y, ...).
 
-    Requires ``pip install skeletrack[pandas]``.
+    Requires ``pip install vtraxkit[pandas]``.
     """
     try:
         import pandas as pd
     except ImportError:
         raise ImportError(
             "pandas is required for to_dataframe(). "
-            "Install it with: pip install skeletrack[pandas]"
+            "Install it with: pip install vtraxkit[pandas]"
         )
 
     rows = []

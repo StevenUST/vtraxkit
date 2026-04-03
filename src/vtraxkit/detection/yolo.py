@@ -13,7 +13,7 @@ from .registry import register_detector
 class YoloDetector(DetectorBackend):
     """Person detector using YOLOv8 + ByteTrack.
 
-    Requires ``pip install skeletrack[yolo]``.
+    Requires ``pip install vtraxkit[yolo]``.
     """
 
     def __init__(
@@ -27,7 +27,7 @@ class YoloDetector(DetectorBackend):
         except ImportError:
             raise ImportError(
                 "ultralytics is required for the YOLO backend. "
-                "Install it with: pip install skeletrack[yolo]"
+                "Install it with: pip install vtraxkit[yolo]"
             )
 
         import torch

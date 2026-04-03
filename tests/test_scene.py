@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from skeletrack.filters.scene import scene_changed
+from vtraxkit.filters.scene import scene_changed
 
 
 class TestSceneChanged:

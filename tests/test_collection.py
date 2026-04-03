@@ -3,9 +3,9 @@
 import numpy as np
 import pytest
 
-from skeletrack.data.bbox import BBox
-from skeletrack.data.collection import TrackCollection
-from skeletrack.data.track import Track
+from vtraxkit.data.bbox import BBox
+from vtraxkit.data.collection import TrackCollection
+from vtraxkit.data.track import Track
 
 
 def _make_track(track_id, n_frames=10, duration=2.0, x_offset=0) -> Track:

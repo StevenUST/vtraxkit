@@ -1,11 +1,11 @@
-# Skeletrack
+# Vtraxkit
 
 Extract multi-person skeleton trajectories from videos with one line of code.
 
 ```python
-import skeletrack
+import vtraxkit
 
-tracks = skeletrack.extract("video.mp4")
+tracks = vtraxkit.extract("video.mp4")
 tracks.filter(min_duration=2.0).save("output.npy")
 ```
 
@@ -20,8 +20,8 @@ Pose estimation runs **after** tracking and filtering, so compute is only spent 
 ## Installation
 
 ```bash
-pip install skeletrack
-pip install skeletrack[yolo,mediapipe]  # with detection + pose backends
+pip install vtraxkit
+pip install vtraxkit[yolo,mediapipe]  # with detection + pose backends
 ```
 
 ### Optional dependencies
@@ -36,13 +36,13 @@ pip install skeletrack[yolo,mediapipe]  # with detection + pose backends
 ## Quick Start
 
 ```python
-import skeletrack
+import vtraxkit
 
 # Extract with default settings
-tracks = skeletrack.extract("video.mp4")
+tracks = vtraxkit.extract("video.mp4")
 
 # Extract with options
-tracks = skeletrack.extract(
+tracks = vtraxkit.extract(
     "video.mp4",
     device="cuda",
     detector="yolo:yolov8s.pt",
@@ -59,7 +59,7 @@ for track in tracks:
     print(f"Track {track.track_id}: {track.duration:.1f}s, {track.num_frames} frames")
 
 # Load saved tracks
-tracks = skeletrack.load("output.npy")
+tracks = vtraxkit.load("output.npy")
 
 # Export to DataFrame
 df = tracks.to_dataframe()
@@ -70,7 +70,7 @@ df = tracks.to_dataframe()
 For processing multiple videos, create a `Pipeline` to avoid reloading models:
 
 ```python
-from skeletrack import Pipeline
+from vtraxkit import Pipeline
 
 pipeline = Pipeline(device="cuda")
 for video in video_list:
@@ -112,6 +112,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 Note: The optional YOLO detection backend depends on
 [ultralytics](https://github.com/ultralytics/ultralytics), which is licensed
-under AGPL-3.0. If you use `skeletrack[yolo]`, please ensure your usage
+under AGPL-3.0. If you use `vtraxkit[yolo]`, please ensure your usage
 complies with the AGPL-3.0 terms. For AGPL-free usage, you may implement a
 custom detection backend without the ultralytics dependency.
