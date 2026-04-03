@@ -20,8 +20,11 @@ Pose estimation runs **after** tracking and filtering, so compute is only spent 
 ## Installation
 
 ```bash
-pip install vtraxkit
-pip install vtraxkit[yolo,mediapipe]  # with detection + pose backends
+# Install from GitHub
+pip install git+https://github.com/StevenUST/vtraxkit.git
+
+# With detection + pose backends
+pip install "vtraxkit[yolo,mediapipe] @ git+https://github.com/StevenUST/vtraxkit.git"
 ```
 
 ### Optional dependencies
